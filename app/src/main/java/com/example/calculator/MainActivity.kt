@@ -3,8 +3,11 @@ package com.example.calculator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.GestureDetector
+import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import com.example.calculator.databinding.ActivityMainBinding
 import java.lang.NumberFormatException
 
@@ -78,6 +81,22 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+    }
+
+    //        Reset value using LONG PRESS ON VIEW
+    private val gestureDetector = GestureDetector(object : GestureDetector.SimpleOnGestureListener() {
+        override fun onLongPress(e: MotionEvent?) {
+            super.onLongPress(e)
+            Toast.makeText(applicationContext, "Reset values", Toast.LENGTH_LONG).show()
+            binding.newNumber.setText("")
+            binding.operation.setText("")
+            binding.result.setText("")
+        }
+    })
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        return gestureDetector.onTouchEvent(event)
     }
 
     //    private var operand1: Double? = null

@@ -213,6 +213,6 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/buttonPlus"
         app:layout_constraintStart_toEndOf="@+id/buttonPlus" />
 
-    
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
